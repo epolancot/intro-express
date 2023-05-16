@@ -1,0 +1,23 @@
+<%- include('includes/header.ejs', pageTitle=album.artist) %>
+
+<div class="container">
+    <h1><%= album.name %></h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Artist</th>
+            <th>Release year</th>
+            <th>Search on youtube</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><b><%= album.artist %></b></td>
+            <td><%= album.released %></td>
+            <td><a href="https://www.youtube.com/results?search_query=<%=album.name.replace(/\s/g, '+').toLowerCase()%>"><%= album.name %></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<%- include('includes/footer.ejs') %> 

@@ -1,11 +1,11 @@
 <ul class="list-group">
   <% albums.forEach(function(a) { %>
     <li class="list-group-item">
-    <%= a.name %>
+    <a href="/album/<%= a.id %>"><%= a.name %></a>
     - 
     <%= a.artist %>
     - 
-    <%= a.name %>
+    <%= a.released %>
     </li>
   <% }); %>
  </ul>
