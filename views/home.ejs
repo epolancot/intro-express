@@ -1,5 +1,6 @@
-<%- include('includes/header.ejs', pageTitle="Home Page") %>
-<body>
-<h1>Home</h1>  
-</body>
-</html>
+    <%- include('includes/header.ejs', pageTitle="Home Page") %>
+
+    <div class="row text-center"><h2>Welcome to my favorite Albums</h2></div>
+    <%- include('albums/albums-list.ejs', {albums: albumsDb.getAll()}) %>
+    <%- include('includes/footer.ejs') %>    
+

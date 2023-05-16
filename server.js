@@ -2,6 +2,9 @@
 const express = require('express')
 const path = require('path')
 
+// require the To Do "database"
+const albumsDb = require('./data/albums-db')
+
 // Create the Express app
 const app = express()
 
@@ -14,12 +17,18 @@ app.set('views', path.join(__dirname, 'views'))
 
 // Mount routes
 app.get('/', function (req, res) {
-  res.send('<h1>Hello Express</h1>')
+  res.redirect('/home')
 });
 
-app.get('/home', function (req, res, next) {
-  res.render('home')
-});
+app.get('/home', function (req, res) {
+    res.render('home', {albumsDb: albumsDb})
+  });
+
+app.get('/albums', function(req, res) {
+    res.render('albums/albumlist', {
+      todos: todoDb.getAll()
+    });
+  });
 
 // Tell the app to listen on port 3000
 app.listen(3000, function () {
