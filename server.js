@@ -25,9 +25,13 @@ app.get('/home', function (req, res) {
 });
 
 app.get('/albums', function(req, res) {
-    res.render('albums/albums-list', {
+    res.render('includes/albums-list', {
     albums: albumsDb.getAll()
     });
+});
+
+app.post('/new', function(req, res) {
+    res.render('new-album')
 });
 
 app.get('/album/:id', function(req, res) {
